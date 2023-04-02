@@ -1,0 +1,7 @@
+{
+    "dryRun": {
+        "handler": "src/jobs/dryRun.js",
+        "cron": "*/3 * * * * *",
+        "enabled": true
+    }
+}

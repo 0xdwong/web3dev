@@ -1,0 +1,23 @@
+{
+  "name": "web3-dev",
+  "version": "1.0.0",
+  "keywords": [
+    "web3"
+  ],
+  "private": true,
+  "scripts": {
+    "hardhat": "yarn workspace hardhat chain",
+    "hardhat:test": "yarn workspace hardhat test",
+    "timer": "yarn workspace timer start",
+    "timer:test": "yarn workspace timer test",
+    "timer:lint": "yarn workspace timer lint",
+    "backend": "yarn workspace backend start",
+    "backend:test": "yarn workspace backend test",
+    "backend:lint": "yarn workspace backend lint"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  }
+}

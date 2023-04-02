@@ -1,0 +1,11 @@
+MNEMONIC = ""
+PROVIDER_URL = "https://rinkeby.infura.io/v3/af749bd44bbd44d8a60291de567f886b"
+LOGGER_LEVEL= "info"
+
+PORT = "3030"
+
+PGHOST = "127.0.0.1"
+PGPORT = "5432"
+PGUSER = ""
+PGDATABASE = ""
+PGPASSWORD = ""

@@ -1,0 +1,9 @@
+{
+    "apps": [
+    {
+      "name": "timer",
+      "script": "main.js",
+      "exec_mode": "fork"
+    }]
+  }
+  
