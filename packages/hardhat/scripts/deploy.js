@@ -6,14 +6,18 @@ async function main() {
     let contractName = 'Test';
     const contract = await ethers.getContractFactory(contractName);
 
+    // 部署合约
     let params = [];
     const instance = await contract.deploy();
     await instance.deployed();
-    console.log("Test contract deployed to:", instance.address);
-    // await writeAddr(instance.address, contractName, network.name);
+
+    console.log(`\ndeployer:`, owner.address);
+    console.log(`\ncontract[${contractName}] deployed to:`, instance.address);
+
+    await writeAddr(instance.address, contractName, network.name);
 
     if (!['hardhat', 'local'].includes(network.name)) {
-        console.log(`Please verify: npx hardhat verify ${instance.address} --network ${network.name}`);
+        console.log('\nPlease verify contract:\n', `npx hardhat verify ${instance.address} --network ${network.name} ${params.join(' ')}`);
     }
 }
 

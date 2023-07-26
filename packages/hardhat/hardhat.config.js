@@ -1,6 +1,5 @@
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-etherscan");
-require('hardhat-contract-sizer');
 require("hardhat-gas-reporter");
 require('hardhat-abi-exporter');
 require('hardhat-docgen');
@@ -12,16 +11,19 @@ const dotenv = require('dotenv');
 dotenv.config({ 'path': path.join(path.resolve(__dirname, '.'), '.env') });
 
 
-const mnemonic = process.env.MNEMONIC;
-const providerUrl = process.env.PROVIDER_URL;
-const scankey = process.env.ETHERSCAN_API_KEY;
-
+const mnemonic = process.env.MNEMONIC || 'test test test test test test test test test test test junk';
+const scankey = process.env.ETHERSCAN_API_KEY || 'EtherScan API key';
 
 module.exports = {
     solidity: {
-        compilers: [{
-            version: "0.8.4",
-        }]
+        compilers: [
+            {
+                version: "0.8.19",
+            },
+            {
+                version: "0.8.0",
+            }
+        ]
     },
     defaultNetwork: 'hardhat',
     settings: {
@@ -41,7 +43,7 @@ module.exports = {
                 accountsBalance: '10000000000000000000000', // (10000 ETH)
             },
         },
-        dev: {
+        local: {
             url: "http://127.0.0.1:8545",
             chainId: 31337,
             accounts: {
@@ -53,7 +55,7 @@ module.exports = {
             },
         },
         main: {
-            url: providerUrl,
+            url: 'https://eth.llamarpc.com',
             accounts: {
                 count: 1,
                 initialIndex: 0,
@@ -63,34 +65,31 @@ module.exports = {
             chainId: 1,
         },
         goerli: {
-            url: providerUrl,
-            accounts: {
-                count: 1,
-                initialIndex: 0,
-                mnemonic,
-                path: "m/44'/60'/0'/0",
+            url: 'https://ethereum-goerli.publicnode.com',
+            saveDeployments: true,
+            accounts:{
+                mnemonic: mnemonic,
             },
             chainId: 5,
         },
-        rinkeby: {
-            url: providerUrl,
+        polygon: {
+            url: 'https://polygon.llamarpc.com',
             accounts: {
-                count: 1,
-                initialIndex: 0,
-                mnemonic,
-                path: "m/44'/60'/0'/0",
+                mnemonic: mnemonic,
             },
-            chainId: 4,
+            chainId: 137,
+        },
+        mumbai: {
+            url: 'https://matic-mumbai.chainstacklabs.com',
+            accounts: {
+                mnemonic: mnemonic,
+            },
+            gasPrice: 30000000000,
+            chainId: 80001,
         },
     },
     etherscan: {
         apiKey: scankey
-    },
-    contractSizer: {
-        alphaSort: true,
-        disambiguatePaths: false,
-        runOnCompile: false,
-        strict: true,
     },
     gasReporter: {
         enabled: false

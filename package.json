@@ -6,8 +6,8 @@
   ],
   "private": true,
   "scripts": {
-    "hardhat": "yarn workspace hardhat chain",
-    "hardhat:test": "yarn workspace hardhat test",
+    "hardhat": "yarn workspace hre chain",
+    "hardhat:test": "yarn workspace hre test",
     "timer": "yarn workspace timer start",
     "timer:test": "yarn workspace timer test",
     "timer:lint": "yarn workspace timer lint",
