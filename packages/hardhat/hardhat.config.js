@@ -5,10 +5,7 @@ require('hardhat-abi-exporter');
 require('hardhat-docgen');
 require("@nomiclabs/hardhat-solhint");
 const { removeConsoleLog } = require('hardhat-preprocessor');
-
-const path = require('path');
-const dotenv = require('dotenv');
-dotenv.config({ 'path': path.join(path.resolve(__dirname, '.'), '.env') });
+require('dotenv').config();
 
 
 const mnemonic = process.env.MNEMONIC || 'test test test test test test test test test test test junk';
