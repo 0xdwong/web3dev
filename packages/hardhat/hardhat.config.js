@@ -1,12 +1,9 @@
-require("@nomiclabs/hardhat-waffle");
-require("@nomicfoundation/hardhat-verify");
-require("hardhat-gas-reporter");
+require("@nomicfoundation/hardhat-toolbox");
 require('hardhat-abi-exporter');
 require('hardhat-docgen');
 require("@nomiclabs/hardhat-solhint");
 const { removeConsoleLog } = require('hardhat-preprocessor');
 require('dotenv').config();
-
 
 const mnemonic = process.env.MNEMONIC || 'test test test test test test test test test test test junk';
 const scankey = process.env.ETHERSCAN_API_KEY || 'EtherScan API key';
@@ -16,9 +13,6 @@ module.exports = {
         compilers: [
             {
                 version: "0.8.19",
-            },
-            {
-                version: "0.8.0",
             }
         ]
     },
@@ -64,7 +58,7 @@ module.exports = {
         goerli: {
             url: 'https://ethereum-goerli.publicnode.com',
             saveDeployments: true,
-            accounts:{
+            accounts: {
                 mnemonic: mnemonic,
             },
             chainId: 5,
@@ -106,5 +100,8 @@ module.exports = {
         path: './docs',
         clear: true,
         runOnCompile: true,
+    },
+    gasReporter: {
+        enabled: true // will take a long time
     }
 };

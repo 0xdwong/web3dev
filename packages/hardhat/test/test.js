@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const { ethers, waffle } = require('hardhat');
+
 
 let contractInstance;
 let accounts = [];
@@ -9,9 +9,8 @@ async function init() {
     accounts = await ethers.getSigners();
     owner = accounts[0];
 
-    const Test = await ethers.getContractFactory('Test');
-    contractInstance = await Test.deploy();
-    await contractInstance.deployed();
+    contractInstance = await ethers.deployContract("Test");
+    console.log('====contract address====', await contractInstance.getAddress());
 }
 
 describe('Test', () => {
