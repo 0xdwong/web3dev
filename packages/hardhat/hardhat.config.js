@@ -78,6 +78,13 @@ module.exports = {
             gasPrice: 30000000000,
             chainId: 80001,
         },
+        'bsc-testnet': {
+            url: 'https://bsc-testnet.publicnode.com',
+            accounts: {
+                mnemonic: mnemonic,
+            },
+            chainId: 97,
+        },
     },
     etherscan: {
         apiKey: scankey
