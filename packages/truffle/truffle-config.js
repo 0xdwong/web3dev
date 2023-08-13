@@ -11,6 +11,22 @@ module.exports = {
       port: 8545,
       network_id: "*",
     },
+    goerli: {
+      provider: () => new HDWalletProvider(MNEMONIC, 'https://rpc.ankr.com/eth_goerli'),
+      network_id: 5,
+    },
+    bsc: {
+      provider: () => new HDWalletProvider(MNEMONIC, 'https://bsc-dataseed.binance.org'),
+      network_id: 56,
+    },
+    arbitrum: {
+      provider: () => new HDWalletProvider(MNEMONIC, 'https://arb1.arbitrum.io/rpc'),
+      network_id: 42161,
+    },
+    'bsc-testnet': {
+      provider: () => new HDWalletProvider(MNEMONIC, 'https://bsc-testnet.publicnode.com'),
+      network_id: 97,
+    },
   },
   mocha: {
     timeout: 100000
@@ -23,8 +39,12 @@ module.exports = {
           enabled: false,
           runs: 200
         },
-        evmVersion: "byzantium"
       }
     }
+  },
+  plugins: ['truffle-plugin-verify'],
+  api_keys: {
+    etherscan: '',
+    bscscan: '',
   },
 };

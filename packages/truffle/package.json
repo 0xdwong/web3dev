@@ -6,7 +6,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ethers": "^5.3.1"
+  },
   "devDependencies": {
-    "dotenv": "^16.3.1"
+    "@truffle/hdwallet-provider": "^2.1.13",
+    "truffle-plugin-verify": "^0.6.5"
   }
 }

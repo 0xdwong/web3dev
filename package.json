@@ -18,6 +18,9 @@
   "workspaces": {
     "packages": [
       "packages/*"
+    ], 
+    "nohoist": [
+      "**/truffle-plugin-verify"
     ]
   }
 }
