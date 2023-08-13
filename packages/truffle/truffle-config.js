@@ -1,5 +1,4 @@
 require('dotenv').config();
-const { PROJECT_ID } = process.env;
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const MNEMONIC = process.env.MNEMONIC || 'test test test test test test test test test test test junk';
 
@@ -44,7 +43,7 @@ module.exports = {
   },
   plugins: ['truffle-plugin-verify'],
   api_keys: {
-    etherscan: '',
-    bscscan: '',
+    etherscan: process.env.etherscan,
+    bscscan: process.env.bscscan
   },
 };

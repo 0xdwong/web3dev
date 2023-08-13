@@ -2,7 +2,9 @@
   "name": "tfl",
   "version": "1.0.0",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "compile": "truffle compile"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
