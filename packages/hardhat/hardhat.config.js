@@ -1,8 +1,8 @@
-require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-etherscan");
 require("hardhat-gas-reporter");
 require('hardhat-abi-exporter');
 require('hardhat-docgen');
+require("@nomicfoundation/hardhat-chai-matchers")
 require("@nomiclabs/hardhat-solhint");
 const { removeConsoleLog } = require('hardhat-preprocessor');
 require('dotenv').config();
